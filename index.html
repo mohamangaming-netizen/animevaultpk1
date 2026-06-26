@@ -131,7 +131,17 @@ button{
 <!-- HERO -->
 <div class="hero"></div>
 
-<!-- PRODUCTS -->
+  <!-- PRODUCTS -->
+
+<div style="text-align:center; margin:20px;">
+<input
+type="text"
+id="search"
+placeholder="🔍 Search figures..."
+onkeyup="searchProducts()"
+style="width:300px;padding:12px;border-radius:10px;border:none;font-size:16px;">
+</div>
+
 <div class="container">
 
   <div class="card">
@@ -358,6 +368,32 @@ function goToWhatsApp(){
 
   window.open("https://wa.me/"+number+"?text="+msg);
 }
+function searchProducts(){
+  let input=document.getElementById("search").value.toLowerCase();
+  let cards=document.querySelectorAll(".card");
+
+  cards.forEach(card=>{
+    let title=card.querySelector("h3").innerText.toLowerCase();
+
+    if(title.includes(input)){
+      card.style.display="block";
+    }else{
+      card.style.display="none";
+    }
+  });
+}
+
+function filterProducts(category){
+  let cards=document.querySelectorAll(".card");
+
+  cards.forEach(card=>{
+    if(category=="all" || card.dataset.category==category){
+      card.style.display="block";
+    }else{
+      card.style.display="none";
+    }
+  });
+}  
 </script>
 
 </body>
