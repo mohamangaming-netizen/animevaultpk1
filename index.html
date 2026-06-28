@@ -104,7 +104,7 @@ body{
     background:#111;
     border-radius:10px;
 }
-}
+
 
 button{
   width:100%;
@@ -177,6 +177,8 @@ style="width:300px;padding:12px;border-radius:10px;border:none;font-size:16px;">
       <div class="price">PKR 5,500</div>
       <button class="add-btn" onclick="addToCart('Minato Namikaze',5500)">Add</button>
     </div>
+  </div>
+</div>
     <div class="card">
 ‎  <img class="img" src="https://i.postimg.cc/8Cdk4zRs/file-0000000006b87208b020e909ff9354a0.png" alt="Pain the god of peace">
 ‎
@@ -386,14 +388,16 @@ function searchProducts(){
 }
 
 function filterProducts(category){
-  let cards=document.querySelectorAll(".card");
+  let cards = document.querySelectorAll(".card");
 
-  cards.forEach(card=>{
-    if(category=="all" || card.dataset.category==category){
-      card.style.display="block";
+  cards.forEach(card => {
+    if(category == "all" || card.dataset.category == category){
+      card.style.display = "block";
     }else{
-      card.style.display="none";
+      card.style.display = "none";
     }
+  });
+}
 }   
 </script>
 
